@@ -23,59 +23,59 @@ double sCircle(double r) //функция принимает значение р
     return M_PI*pow(r,2); //по формуле находит площадь круга и возвращает ее значение
 }
 
-double sRecTriangle(double k1, double k2)
+double sRecTriangle(double k1, double k2) //функция принимает значения двух катетов
 {
-    return (k1*k2)/2;
+    return (k1*k2)/2; //по формуле находит площадь прямоугольного треугольника и возвращает ее значение
 }
 
-double gipRecTriangle(double k1, double k2)
+double gipRecTriangle(double k1, double k2) //функция принимает значения двух катетов
 {
-    return pow(k1,2)+pow(k2,2);
+    return sqrt(pow(k1,2)+pow(k2,2)); //по формуле находит значение гипотенузы и возвращает ее значение
 }
 
-int sum4digit(int digit)
+int sum4digit(int digit) //функция принимает четырехзначное число
 {
-    int a = digit % 10;
+    int a = digit % 10; //находим каждую цифру числа через деление на 10 с остатком и целочисленное деление
     int b = digit / 10 % 10;
     int c = digit / 100 % 10;
     int d = digit / 1000;
     
-    return a+b+c+d;
+    return a+b+c+d; //функция возвращает сумму цифр четырехзначного числа
 }
 
-double DtoP_r(double x, double y)
+double DtoP_r(double x, double y) //функция принимает значение координат x, y
 {
-    return sqrt(x*x + y*y);
+    return sqrt(x*x + y*y); //по формуле ищет значение r и возвращает его
 }
 
-double DtoP_tg(double x, double y)
+double DtoP_tg(double x, double y) //функция принимает значение координат x, y
 {
-    return y/x;
+    return y/x; //по формуле ищет значение tg(fi) и возвращает его
 }
 
-double PtoD_x(double r, double fi)
+double PtoD_x(double r, double fi) //функция принимает значения r, fi
 {
-    return r*cos(fi);
+    return r*cos(fi); //по формуле ищет значение x и возвращает его
 }
 
-double PtoD_y(double r, double fi)
+double PtoD_y(double r, double fi) //функция принимает значения r, fi
 {
-    return r*sin(fi);
+    return r*sin(fi); //по формуле ищет значение y и возвращает его
 }
 
-double koren1(double a, double b, double d)
+double koren1(double a, double b, double d) //функция принимает значения коэффициентов a, b и дискриминанта
 {
-    return (-b+sqrt(d))/2*a;
+    return (-b+sqrt(d))/2*a; //по формуле ищет первый корень и вовзвращает его значение
 }
 
-double koren2(double a, double b, double d)
+double koren2(double a, double b, double d) //функция принимает значения коэффициентов a, b и дискриминанта
 {
-    return (-b-sqrt(d))/2*a;
+    return (-b-sqrt(d))/2*a; //по формуле ищет второй корень и вовзвращает его значение
 }
 
-double diskriminant(double a, double b, double c)
+double diskriminant(double a, double b, double c) //функция принимает значения коэффициентов a, b, c
 {
-    return pow(b, 2)-4*a*c;
+    return pow(b, 2)-4*a*c; //по формуле ищет дискриминант и возвращает его значение
 }
 
 double mediana(double a, double b, double c)
@@ -194,11 +194,11 @@ int main()
 {
     /*task 1*/
     
-    std::cout << "enter first base, second base, height: "; //вводим значения верхнего и нижнего оснований и высоты с клавиатуры
+    std::cout << "first base, second base, height: "; //вводим значения верхнего и нижнего оснований и высоты с клавиатуры
     double osnov1=0,osnov2=0,h=0;
     std::cin >> osnov1 >> osnov2 >> h;
 
-    std::cout << "S of Trapezoid: "<< sTrapez(osnov1, osnov2, h) << std::endl; //вызываем функцию которая ищет площадь трапеции и выводим результат на консоль
+    std::cout << "S of Trapezoid: "<< sTrapez(osnov1, osnov2, h) << std::endl; //вызываем функцию, которая ищет площадь трапеции и выводим результат на консоль
     
     
     /*task 2*/
@@ -207,74 +207,55 @@ int main()
     double rad=0;
     std::cin >> rad;
     
-    std::cout << "length of Circle: " << lCircle(rad) << std::endl; //вызываем функцию которая ищет длину окружности и выводим результат на консоль
-    std::cout << "S of Circle: " << sCircle(rad) << std::endl; //вызываем функцию которая ищет площадь круга и выводим результат на консоль
+    std::cout << "length of Circle: " << lCircle(rad) << std::endl; //вызываем функцию, которая ищет длину окружности и выводим результат на консоль
+    std::cout << "S of Circle: " << sCircle(rad) << std::endl; //вызываем функцию, которая ищет площадь круга и выводим результат на консоль
     
     
     /*task 3*/
     
-    /*std::cout << "first katet: ";
-    double e=0;
-    std::cin >> e;
+    std::cout << "first and second katet: "; //вводим значение катетов с клавиатуры
+    double katet1=0, katet2=0;
+    std::cin >> katet1 >> katet2;
     
-    std::cout << "second katet: ";
-    double f=0;
-    std::cin >> f;
-    
-    std::cout << "S of Rectangulare Triangle: " << sRecTriangle(e,f) << std::endl;
-    std::cout << "Gipotenuza of Rectangulare Triangle: " << sqrt(gipRecTriangle(e,f)) << std::endl;
+    std::cout << "S of Rectangulare Triangle: " << sRecTriangle(katet1, katet2) << std::endl; //вызываем функцию, которая ищет площадь прямоугольного треугольника и выводии ее значение
+    std::cout << "Gipotenuza of Rectangulare Triangle: " << gipRecTriangle(katet1, katet2) << std::endl; //вызываем функцию, которая ищет гипотенузу и выводим ее значение
     
     
     /*task 4*/
     
-    /*std::cout << "four-digit number: ";
-    double g=0;
-    std::cin >> g;
+    std::cout << "four-digit number: "; //вводим значение четырехзначного числа с клавиатуры
+    double fourdig=0;
+    std::cin >> fourdig;
     
-    std::cout << "Summa: " << sum4digit(e) << std::endl;
-    
+    std::cout << "Summa: " << sum4digit(fourdig) << std::endl; //вызываем функцию, которая ищет сумму всех его цифр
+
+    //я дальше не буду комментировать, что мы вводим с клавиатуры число, а потом вызываем функцию, ктороая что-то делает, так как это очевидно и повторяется в каждой задаче
     
     /*task 5*/
     
-    /*std::cout << "x: ";
-    double h=0;
-    std::cin >> h;
+    std::cout << "x, y: ";
+    double x=0, y=0;
+    std::cin >> x >> y;
     
-    std::cout << "y: ";
-    double i=0;
-    std::cin >> i;
-    
-    std::cout << "Polar r: " << DtoP_r(h, i) << " Polar tg(fi): " << DtoP_tg(h, i) << std::endl;
+    std::cout << "Polar r: " << DtoP_r(x, y) << " Polar tg(fi): " << DtoP_tg(x, y) << std::endl;
     
     
     /*task 6*/
     
-    /*std::cout << "r: ";
-    double j=0;
-    std::cin >> j;
+    std::cout << "r, fi: ";
+    double r=0, fi=0;
+    std::cin >> r >> fi;
     
-    std::cout << "fi: ";
-    double k=0;
-    std::cin >> k;
-    
-    std::cout << "Decart x: " << PtoD_x(j, k) << " Decart y: " << PtoD_y(j, k) << std::endl;
+    std::cout << "Decart x: " << PtoD_x(r, fi) << " Decart y: " << PtoD_y(r, fi) << std::endl;
     
     
     /*task 7*/
     
-    /*std::cout << "index a: ";
-    double l=0;
-    std::cin >> l;
+    std::cout << "index a, b, c: ";
+    double a=0,b=0,c=0;
+    std::cin >> a >> b >> c;
     
-    std::cout << "index b: ";
-    double m=0;
-    std::cin >> m;
-    
-    std::cout << "index c: ";
-    double n=0;
-    std::cin >> n;
-    
-    std::cout << "first root: " << koren1(l, m, diskriminant(l, m, n)) << " second root: " << koren2(l, m, diskriminant(l, m, n)) << std::endl;
+    std::cout << "first root: " << koren1(a, b, diskriminant(a,b,c)) << " second root: " << koren2(a, b, diskriminant(a,b,c)) << std::endl;
     
     
     /*task 8*/
