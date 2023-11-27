@@ -13,14 +13,14 @@ double sTrapez(double b1, double b2, double h) //функция принимае
     return (b1+b2)/2*h; //по формуле находит площадь и возвращает ее значение
 }
 
-double lTriangle(double r)
+double lCircle(double r) //функция принимает значение радиуса
 {
-    return 2*M_PI*r;
+    return 2*M_PI*r; //по формуле находит длину окружности и возвращает ее значение
 }
 
-double sTriangle(double r)
+double sCircle(double r) //функция принимает значение радиуса
 {
-    return M_PI*pow(r,2);
+    return M_PI*pow(r,2); //по формуле находит площадь круга и возвращает ее значение
 }
 
 double sRecTriangle(double k1, double k2)
@@ -194,29 +194,21 @@ int main()
 {
     /*task 1*/
     
-    std::cout << "first base: "; //вводим переменные верхнего и нижнего оснований и высоты с клавиатуры
-    double osnov1=0;
-    std::cin >> osnov1;
-    
-    std::cout << "second base: ";
-    double osnov2=0;
-    std::cin >> osnov2;
-    
-    std::cout << "height: ";
-    double h=0;
-    std::cin >> h;
+    std::cout << "enter first base, second base, height: "; //вводим значения верхнего и нижнего оснований и высоты с клавиатуры
+    double osnov1=0,osnov2=0,h=0;
+    std::cin >> osnov1 >> osnov2 >> h;
 
     std::cout << "S of Trapezoid: "<< sTrapez(osnov1, osnov2, h) << std::endl; //вызываем функцию которая ищет площадь трапеции и выводим результат на консоль
     
     
     /*task 2*/
     
-    /*std::cout << "radius: ";
-    double d=0;
-    std::cin >> d;
+    std::cout << "radius: "; //вводим значение радиуса с клавиатуры
+    double rad=0;
+    std::cin >> rad;
     
-    std::cout << "length of Triangle: " << lTriangle(d) << std::endl;
-    std::cout << "S of Triangle: " << sTriangle(d) << std::endl;
+    std::cout << "length of Circle: " << lCircle(rad) << std::endl; //вызываем функцию которая ищет длину окружности и выводим результат на консоль
+    std::cout << "S of Circle: " << sCircle(rad) << std::endl; //вызываем функцию которая ищет площадь круга и выводим результат на консоль
     
     
     /*task 3*/
