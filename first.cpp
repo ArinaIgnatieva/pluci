@@ -118,6 +118,68 @@ double cost(double day, double minutes, double costOfMin) //функция пр�
     return cost; //возвращаем значение переменной cost 
 }
 
+void MonthAndSeason(int month) {
+    std::string monthName;
+    std::string season;
+
+    switch (month) {
+        case 1:
+            monthName = "January";
+            season = "Winter";
+            break;
+        case 2:
+            monthName = "February";
+            season = "Winter";
+            break;
+        case 3:
+            monthName = "March";
+            season = "Spring";
+            break;
+        case 4:
+            monthName = "April";
+            season = "Spring";
+            break;
+        case 5:
+            monthName = "May";
+            season = "Spring";
+            break;
+        case 6:
+            monthName = "June";
+            season = "Summer";
+            break;
+        case 7:
+            monthName = "July";
+            season = "Summer";
+            break;
+        case 8:
+            monthName = "August";
+            season = "Summer";
+            break;
+        case 9:
+            monthName = "September";
+            season = "Autumn";
+            break;
+        case 10:
+            monthName = "October";
+            season = "Autumn";
+            break;
+        case 11:
+            monthName = "November";
+            season = "Autumn";
+            break;
+        case 12:
+            monthName = "December";
+            season = "Winter";
+            break;
+        default:
+            std::cout << "wrong month number.";
+            return;
+    }
+
+    std::cout << "month: " << monthName << std::endl;
+    std::cout << "season: " << season << std::endl;
+}
+
 bool happy(int number) //булева функция принимает значение шестизначного числа
 {
     int sum1half = 0; 
@@ -163,22 +225,32 @@ bool palindrom(int number) //булева функция принимает зн
     return (original==reversed); //возвращаем сравнение исходного и получившегося чисел
 }
 
-int mult(int digit) //функция принимает целочисленное значение трехзначного числа
-{
-    int a = digit % 10; //находим каждую цифру числа через деление на 10 с остатком и целочисленное деление
-    int b = digit / 10 % 10;
-    int c = digit / 100;
-    
-    return a*b*c; //возвращаем результат умножения этих цифр
+bool mult(int number, int b) {
+    int dig1 = number % 10;
+    int dig2 = number / 10 % 10;
+    int dig3 = number / 100;
+
+    int mult = dig1*dig2*dig3;
+
+    if (mult > b) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
-int add(int digit) //функция принимает целочисленное значение трехзначного числа
-{
-    int a = digit % 10; //находим каждую цифру числа через деление на 10 с остатком и целочисленное деление
-    int b = digit / 10 % 10;
-    int c = digit / 100;
-    
-    return a+b+c; //возвращаем результат сложения этих цифр
+bool add(int number) {
+    int dig1 = number % 10;
+    int dig2 = number / 10 % 10;
+    int dig3 = number / 100;
+
+    int add = dig1+dig2+dig3;
+
+    if (add%7==0) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 bool fit(double a, double b, double c, double d) //булева функция принимает значение четырех сторон двух прямоугольников
@@ -351,50 +423,11 @@ int main()
     
     /*task 15*/
     
-    std::cout<< "month: ";
-    int mon = 0;
+    std::cout << "enter a number from 1 to 12: ";
+    int mon=0;
     std::cin >> mon;
-    
-    switch (mon) { //используем данный инструмент, чтобы при введенном значении месяца выводилось соответствующее название и время года
-        case 1:
-            std::cout << "January, Winter";
-            break;
-        case 2:
-            std::cout << "February, Winter";
-            break;
-        case 3:
-            std::cout << "March, Spring";
-            break;
-        case 4:
-            std::cout << "April, Spring";
-            break;
-        case 5:
-            std::cout << "May, Spring";
-            break;
-        case 6:
-            std::cout << "June, Summer";
-            break;
-        case 7:
-            std::cout << "July, Summer";
-            break;
-        case 8:
-            std::cout << "August, Summer";
-            break;
-        case 9:
-            std::cout << "September, Autumn";
-            break;
-        case 10:
-            std::cout << "October, Autumn";
-            break;
-        case 11:
-            std::cout << "November, Autumn";
-            break;
-        case 12:
-            std::cout << "December, Winter";
-            break;
-        default:
-            std::cout << "enter a number from 1 to 12";
-    }
+
+    MonthAndSeason(mon);
     
     
     /*task 16*/
@@ -436,32 +469,24 @@ int main()
     
     /*task 19*/
     
-    std::cout<< "enter a number: ";
-    int dig = 0;
-    std::cin>>dig;
-    
-    std::cout<< "enter b: ";
-    int bb = 0;
-    std::cin>>bb;
-    
-    int multi = mult(dig); //присваиваем новой переменной значение, возвращенное функцией
-    
-    if(multi>bb)
-    { //если произведение больше числа b, это и пишем
-        std::cout<<"multiplication is bigger than b"<<std::endl;
-    } else
-    { //если меньше либо равноб то пишем, что не больше
-        std::cout<<"multiplication is not bigger than b"<< std::endl;
+    std::cout << "enter three-digit number: ";
+    int number=0;
+    std::cin >> number;
+
+    std::cout << "enter b: ";
+    int b=0;
+    std::cin >> b;
+
+    if (mult(number, b)) {
+        std::cout << "multiple bigger than b" << std::endl;
+    } else {
+        std::cout << "multiple is not bigger than b" << std::endl;
     }
-    
-    int plus = add(dig); //присваиваем новой переменной значение, возвращенное функцией
-    
-    if(plus % 7 == 0)
-    { //если сумма кратна 7 (остаток от деления на 7 равен 0), то так и пишем
-        std::cout<<"summa kratna 7";
-    } else
-    { //если не кратна, то так и пишем
-        std::cout<<"summa ne kratna 7";
+
+    if (add(number)) {
+        std::cout << "summa kratna 7" << std::endl;
+    } else {
+        std::cout << "summa ne kratna 7" << std::endl;
     }
     
     
