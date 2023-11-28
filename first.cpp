@@ -123,6 +123,11 @@ void advice(double weight, double height) //функция принимает з
     std::cout << "you should " << recommend << std::endl; //выводим получившееся значение на консоль
 }
 
+//task13
+int Random() {
+    return rand() % 9 + 1; //используем функцию, которая генерирует случайные значения, задаем диапазон от 1 до 9
+}
+
 //task14
 double cost(double day, double minutes, double costOfMin) //функция принимает значение дня разговора, минут разговора и стоимость минуты разговора
 {
@@ -217,13 +222,13 @@ bool happy(int number) //булева функция принимает знач
 void kopeyk(int number) //функция принимает значение числа от 1 до 99
 { 
     if (number%10==1 && number!=11){ //если остаток от деления на 10 равен 1 и число не равно 11, то пишем "копейка"
-        std::cout<<number<<" kopeyka";
+        std::cout<<number<<" kopeyka" << std::endl;
     }
     else if ((number%10==2||number%10==3||number%10==4)&&(number!=12&&number!=13&&number!=14)){ //если остаток от деления на 10 равен 2 или 3 или 4 и число не равно 11 и 12 и 13, то пишем "копейки"
-        std::cout<<number<<" kopeiki";
+        std::cout<<number<<" kopeiki" << std::endl;
     }
     else { //для всех остальных пишем "копеек"
-        std::cout<<number<<" kopeek";
+        std::cout<<number<<" kopeek" << std::endl;
     }
 }
 
@@ -323,7 +328,9 @@ int main()
     
     std::cout << "Summa: " << sum4digit(fourdig) << std::endl; //вызываем функцию, которая ищет сумму всех его цифр, и выводим результат на консоль
 
-    //я дальше не буду комментировать, что мы вводим с клавиатуры число, а потом вызываем функцию, ктороая что-то делает, так как это очевидно и повторяется в каждой задаче
+    
+    //дальше не будем комментировать, что мы вводим с клавиатуры число, инициализируем переменную, а потом вызываем функцию, ктороая что-то делает, так как это очевидно и повторяется в каждой задаче
+
     
     /*task 5*/
     
@@ -378,10 +385,10 @@ int main()
     std::cin >> t >> q >> u;
 
     if (isosceles(t, q, u)){ //т. е. если выполняется какое-то из условий в функции isosceles(), то мы печатаем "isosceles"
-        std::cout << "isosceles";
+        std::cout << "isosceles" << std::endl;
     }
     else { //если не выполняется ни одно из условий, то пишем "not isosceles"
-        std::cout << "not isosceles";
+        std::cout << "not isosceles"<< std::endl;
     }
     
     
@@ -405,24 +412,23 @@ int main()
     
     /*task 13*/
     
-    std::srand(time(NULL)); //используем эту функцию, чтобы каждый раз при запуске программы получались новые числа, без нее всегда одинаковые будут при каждом запуске программы
-    
-    int val = rand()%10+1; //присваиваем новой переменной рандомное значение из диапазона от 1 до 9
-    int val2 = rand()%10+1; //присваиваем новой переменной рандомное значение из диапазона от 1 до 9
-    
-    std::cout<< "first number: " << val << std::endl; 
-    std::cout<< "second number: " << val2 << std::endl; //выводим значение обеих переменных на консоль
-    
-    std::cout<< "enter a multiply: "<< std::endl; //пользователь вводит результат умножения этих двух чисел
+    std::srand((time(NULL))); //используем генератор случайных чисел, чтобы при каждом запуске программы они были разные, без него всегда одинаковые будут
+
+    int val1 = Random(); //присваиваем двум новым переменным рандомные значения, которые возвращает функция
+    int val2 = Random();
+
+    std::cout << "first number: " << val1 << std::endl; //выводим их на консоль, чтоббы их увидел тестируемый
+    std::cout << "second number: " << val2 << std::endl;
+
+    std::cout << "enter a multiple: "; //тестируемый вводит результат умножения чисел
     int result=0;
-    std::cin>> result;
-    
-    if (result==val*val2){ //если ответ действительно равен произведению, то пишем, что все правильно
-        std::cout<< "correct";
-        }
-    else { //если ответ неправильный, то пишем, что пользователь ошибся
-        std::cout<< "wrong";
-        }
+    std::cin >> result;
+
+    if (result == val1*val2) { //если ответ действительно равен произведению чисел, то пишем "correct"
+        std::cout << "correct" << std::endl;
+    } else { //если не равен, то пишем "wrong"
+        std::cout << "wrong" << std::endl;
+    }
     
     
     /*task 14*/
@@ -458,10 +464,10 @@ int main()
     std::cin >> number;
     
     if (happy(number)){ //если значение булевой функции true, то есть суммы равны друг другу, то пишем, что число счастливое 
-        std::cout<< "happy";
+        std::cout<< "happy"<< std::endl;
     }
     else{ //если значение булевой функции false, т. е. суммы не равны, то пишем, что число несчастливое 
-        std::cout<<"unhappy";
+        std::cout<< "unhappy"<< std::endl;
     }   
     
     
@@ -481,10 +487,10 @@ int main()
     std::cin>>numbe;
     
     if(palindrom(numbe)){ //если значение функции true, т. е. числа равны, то исходное число - палиндром
-        std::cout<< "palindrom!";
+        std::cout<< "palindrom!"<< std::endl;
     }
     else { //если false, т. е. не равны, то не палиндром
-        std::cout<<"not palindrom";
+        std::cout<<"not palindrom"<< std::endl;
     }
     
     
@@ -523,10 +529,10 @@ int main()
     
     
     if(fit(a,b,c,d)){ //если функция возвращает true, то выводим, что прямоугольник можно поместить в другой прямоугольник
-        std::cout<< "rectangle with sides "<<a<<"x"<<b<<" is suitable for rectangle with sides "<<c<<"x"<<d;
-        }
+        std::cout<< "rectangle with sides "<<a<<"x"<<b<<" is suitable for rectangle with sides "<<c<<"x"<<d << std::endl; 
+    }
     else { //если функция возвращает false, то пишем, что нельзя поместить
-        std::cout<< "not suitable";
+        std::cout<< "not suitable"<< std::endl;
     }
     
 }
