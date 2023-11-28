@@ -287,6 +287,18 @@ bool fit(double a, double b, double c, double d) //булева функция �
     }
 }
 
+//task21
+
+void sizes() {
+    std::cout << "size of char: " << sizeof(char) << " byte" << std::endl;
+    std::cout << "size of short: " << sizeof(short) << " bytes" << std::endl;
+    std::cout << "size of int: " << sizeof(int) << " bytes" << std::endl;
+    std::cout << "size of float: " << sizeof(float) << " bytes" << std::endl;
+    std::cout << "size of long: " << sizeof(long) << " bytes" << std::endl;
+    std::cout << "size of long long: " << sizeof(long long) << " bytes" << std::endl;
+    std::cout << "size of double: " << sizeof(double) << " bytes" << std::endl;
+    std::cout << "size of long double: " << sizeof(long double) << " bytes" << std::endl;
+}
 
 
 int main()
@@ -534,5 +546,9 @@ int main()
     else { //если функция возвращает false, то пишем, что нельзя поместить
         std::cout<< "not suitable"<< std::endl;
     }
-    
+
+
+    /*task 21*/
+
+    sizes(); //вызываем функцию, которая выводит таблицу размеров данных на консоль
 }
